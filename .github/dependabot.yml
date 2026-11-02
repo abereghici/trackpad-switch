@@ -1,0 +1,12 @@
+version: 2
+updates:
+  # Keeps the actions current: CI pins each to a full commit SHA, which Dependabot updates.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  # Proposes swift-crypto updates within the range Package.swift allows, as a reviewed change to Package.resolved.
+  - package-ecosystem: swift
+    directory: /Packages/TrackpadSwitchCore
+    schedule:
+      interval: weekly

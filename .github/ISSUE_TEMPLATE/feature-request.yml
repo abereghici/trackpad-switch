@@ -1,0 +1,10 @@
+name: Feature request
+description: A new behavior or supported setup.
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you need, and why?
+    validations:
+      required: true

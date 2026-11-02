@@ -1,0 +1,30 @@
+name: Bug report
+description: A switch, link or setting doesn't do what the README says.
+labels: [bug, needs-triage]
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: TrackpadSwitch version and macOS version on each Mac
+      placeholder: 0.1.0 on macOS 26.1 and macOS 15.7
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      placeholder: Magic Trackpad (USB-C)
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: From both Macs, right after it happened. Run `/usr/bin/log show --last 10m --style compact --predicate 'subsystem == "dev.bereghici.trackpadswitch"'`. Device names appear as `<private>`; check the rest before sharing.
+      render: text

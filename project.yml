@@ -1,0 +1,57 @@
+name: TrackpadSwitch
+options:
+  bundleIdPrefix: dev.bereghici
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+configFiles:
+  Debug: Configs/Signing.xcconfig
+  Release: Configs/Signing.xcconfig
+settings:
+  base:
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+packages:
+  TrackpadSwitchCore:
+    path: Packages/TrackpadSwitchCore
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    from: 3.1.0
+targets:
+  TrackpadSwitch:
+    type: application
+    platform: macOS
+    sources: [App]
+    dependencies:
+      - package: TrackpadSwitchCore
+      - package: KeyboardShortcuts
+      - sdk: IOBluetooth.framework
+      - sdk: CoreBluetooth.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.bereghici.trackpadswitch
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_TREAT_WARNINGS_AS_ERRORS: YES
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleDisplayName: TrackpadSwitch
+        LSUIElement: true
+        LSApplicationCategoryType: public.app-category.utilities
+        NSBluetoothAlwaysUsageDescription: TrackpadSwitch uses Bluetooth to move your trackpad between your Macs.
+        CFBundleURLTypes:
+          - CFBundleURLName: dev.bereghici.trackpadswitch
+            CFBundleURLSchemes: [trackpadswitch]
+schemes:
+  TrackpadSwitch:
+    build:
+      targets:
+        TrackpadSwitch: all
+    test:
+      targets:
+        - package: TrackpadSwitchCore/TrackpadSwitchCoreTests

@@ -1,0 +1,7 @@
+build/
+.build/
+xcuserdata/
+.DS_Store
+TrackpadSwitch.xcodeproj/
+App/Info.plist
+Configs/Local.xcconfig
