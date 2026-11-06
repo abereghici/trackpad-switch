@@ -17,9 +17,6 @@
   <img alt="macOS 14 or later" src="https://img.shields.io/badge/macOS-14%2B-263316">
 </p>
 
-> [!IMPORTANT]
-> Pre-release. The core logic is unit-tested and the app builds in CI, but switching and linking have not yet been run on two real Macs.
-
 ## Why
 
 To use one Magic Trackpad on two Macs signed in to different Apple Accounts, such as a personal and a work Mac, you remove it in Bluetooth settings on one Mac and pair it on the other each time. TrackpadSwitch does that hand-over with one click or a keyboard shortcut. The two Macs coordinate directly over Bluetooth LE, with no network and no shared account.
